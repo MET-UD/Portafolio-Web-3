@@ -56,9 +56,11 @@ El portal conserva con fidelidad literal los tres títulos principales y su cont
 
 ## 🚀 Despliegue en Vercel y Ejecución Local
 
-### Requisitos previos
-- Node.js 18+ o 20+
-- npm o pnpm o bun
+### Causa del error resuelto (`ERESOLVE could not resolve`):
+El error en Vercel se originaba por un conflicto entre la versión fija antigua `esbuild@^0.25.0` y el requerimiento de peer dependency de `vite@8.x` (`esbuild@^0.27.0 || ^0.28.0`). Se solucionó:
+1. Eliminando la dependencia conflictiva innecesaria de `esbuild` en `devDependencies` (Vite gestiona internamente la versión adecuada).
+2. Creando el archivo `.npmrc` con `legacy-peer-deps=true`.
+3. Configurando `vercel.json` con `"installCommand": "npm install --legacy-peer-deps"`.
 
 ### Instalación local
 ```bash
@@ -76,12 +78,12 @@ npm run preview
 ```
 
 ### Despliegue en Vercel
-1. Conecta el repositorio en [Vercel](https://vercel.com).
-2. Configuración predeterminada detectada automáticamente:
+1. Conecta el repositorio de GitHub en [Vercel](https://vercel.com).
+2. Las configuraciones de compilación son detectadas automáticamente a través de `vercel.json`:
    - **Framework Preset**: Vite
    - **Build Command**: `npm run build`
    - **Output Directory**: `dist`
-   - **Node.js Version**: 20.x o superior
+   - **Install Command**: `npm install --legacy-peer-deps`
 3. Haz clic en **Deploy**.
 
 ---
