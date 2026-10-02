@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    background-color: #060911;
+    color: #f1f5f9;
+  }
+
+  h1, h2, h3, .font-serif-title {
+    font-family: var(--font-serif);
+  }
+}
+
+/* Luminous effects & dark tech grids */
+.tech-grid-pattern-dark {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.16) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.tech-grid-subtle {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Atmospheric illumination gradients */
+.glow-beam-cyan {
+  background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.22) 0%, rgba(14, 165, 233, 0.08) 40%, transparent 70%);
+}
+
+.glow-orb-cyan {
+  box-shadow: 0 0 80px 25px rgba(6, 182, 212, 0.15);
+}
+
+.glow-orb-indigo {
+  box-shadow: 0 0 90px 30px rgba(99, 102, 241, 0.12);
+}
+
+.luminous-hairline {
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+}
+
+.luminous-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.luminous-card:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 15px 35px -10px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(56, 189, 248, 0.2);
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

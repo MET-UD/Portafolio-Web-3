@@ -1,0 +1,6 @@
+{
+  "name": "Didácticas en Entornos Virtuales",
+  "description": "Portal web educativo institucional sobre innovación pedagógica, inteligencia artificial multimodal y didácticas contemporáneas en entornos virtuales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
